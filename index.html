@@ -89,6 +89,8 @@
             display: flex;
             align-items: center;
             gap: 0.625rem;
+            flex-shrink: 0;
+            min-width: 0;
             color: var(--gray-900);
             text-decoration: none;
             font-weight: 600;
@@ -110,7 +112,8 @@
         }
 
         .search {
-            flex: 1;
+            flex: 1 1 8rem;
+            min-width: 0;
             max-width: 28rem;
             margin-left: auto;
             height: 2.5rem;
@@ -145,6 +148,23 @@
             border-radius: 0.25rem;
             padding: 0.05rem 0.35rem;
         }
+
+        .nav-toggle {
+            display: none;
+            flex-shrink: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: 0;
+            border: 1px solid var(--gray-200);
+            border-radius: 0.625rem;
+            background: var(--gray-50);
+            color: var(--gray-700);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-toggle:hover { background: #fff; border-color: var(--gray-300); }
 
         .nav-links {
             display: flex;
@@ -181,6 +201,8 @@
 
         .breadcrumbs {
             min-width: 0;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .breadcrumbs ol {
@@ -268,7 +290,7 @@
 
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
             gap: 1.25rem;
         }
 
@@ -359,6 +381,12 @@
             color: var(--gray-400);
         }
 
+        .table-scroll {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -388,6 +416,7 @@
             border: 1px solid var(--gray-200);
             border-radius: 0.375rem;
             padding: 0.1rem 0.375rem;
+            overflow-wrap: anywhere;
         }
 
         .page-footer {
@@ -411,7 +440,11 @@
 
         .page-footer a:hover { color: var(--primary); }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
+            .navbar-inner,
+            .navbar-crumbs-inner,
+            .page { padding-left: 1.25rem; padding-right: 1.25rem; }
+
             .search span, .search kbd { display: none; }
             .search {
                 flex: 0 0 2.5rem;
@@ -419,9 +452,43 @@
                 padding: 0;
                 justify-content: center;
             }
-            .nav-links { margin-left: 0; }
-            .page { padding: 2.5rem 1.25rem 3rem; }
+
+            .nav-toggle { display: flex; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                margin: 0;
+                padding: 0.75rem 1.25rem 1rem;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.25rem;
+                background: #fff;
+                border-bottom: 1px solid var(--gray-200);
+                box-shadow: 0 16px 32px rgba(17, 24, 39, 0.08);
+            }
+            .nav-links.is-open { display: flex; }
+            .nav-links a { padding: 0.75rem 0.75rem; border-radius: 0.5rem; }
+            .nav-links .btn { text-align: center; }
+
             h1 { font-size: 1.875rem; }
+            .description { font-size: 1rem; }
+        }
+
+        @media (max-width: 600px) {
+            .navbar-inner,
+            .navbar-crumbs-inner,
+            .page { padding-left: 1rem; padding-right: 1rem; }
+
+            .page { padding-top: 2rem; padding-bottom: 3rem; }
+            h1 { font-size: 1.625rem; }
+            .page-footer { flex-direction: column; }
+        }
+
+        @media (max-width: 420px) {
+            .logo-text { display: none; }
         }
     </style>
 </head>
@@ -429,13 +496,16 @@
 
     <header class="navbar">
         <div class="navbar-inner">
-            <a href="./" class="logo"><span class="logo-mark">W</span>Web Technologies</a>
+            <a href="./" class="logo"><span class="logo-mark">W</span><span class="logo-text">Web Technologies</span></a>
             <button type="button" class="search" aria-label="Search">
                 <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd"/></svg>
                 <span>Search or ask...</span>
                 <kbd>&#8984; K</kbd>
             </button>
-            <nav class="nav-links">
+            <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3.5 6h13M3.5 10h13M3.5 14h13"/></svg>
+            </button>
+            <nav class="nav-links" id="site-nav">
                 <a href="#assignments">Assignments</a>
                 <a href="#labs">Labs</a>
                 <a class="btn" href="assignments/index.html">Latest work</a>
@@ -539,6 +609,7 @@
             <div class="section-head">
                 <h2>All pages</h2>
             </div>
+            <div class="table-scroll">
             <table>
                 <thead>
                     <tr>
@@ -565,6 +636,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </section>
 
         <footer class="page-footer">

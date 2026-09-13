@@ -59,6 +59,10 @@
         ".search-empty {",
         "  margin: 0; padding: 2rem 1rem; text-align: center;",
         "  font-size: 0.875rem; color: var(--gray-500);",
+        "}",
+        "@media (max-width: 640px) {",
+        "  .search-overlay { padding: 0; align-items: stretch; }",
+        "  .search-dialog { max-width: none; max-height: 100%; border-radius: 0; }",
         "}"
     ].join("\n");
 
@@ -303,9 +307,82 @@
         });
     }
 
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", init);
-    } else {
+    function initNav() {
+        var toggle = document.querySelector(".nav-toggle");
+        var links = document.querySelector(".nav-links");
+        var navbar = document.querySelector(".navbar");
+        if (!toggle || !links || !navbar) return;
+
+        function setOpen(open) {
+            links.classList.toggle("is-open", open);
+            navbar.classList.toggle("is-menu-open", open);
+            toggle.setAttribute("aria-expanded", open ? "true" : "false");
+            toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        }
+
+        toggle.addEventListener("click", function () {
+            setOpen(!links.classList.contains("is-open"));
+        });
+
+        links.addEventListener("click", function (event) {
+            if (event.target.closest("a")) setOpen(false);
+        });
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") setOpen(false);
+        });
+
+        window.addEventListener("resize", function () {
+            if (window.getComputedStyle(toggle).display === "none") setOpen(false);
+        });
+    }
+
+    function initTopics() {
+        var toggle = document.querySelector(".topics-toggle");
+        var sidebar = document.querySelector(".sidebar");
+        var backdrop = document.querySelector(".drawer-backdrop");
+        if (!toggle || !sidebar) return;
+
+        if (!backdrop) {
+            backdrop = document.createElement("div");
+            backdrop.className = "drawer-backdrop";
+            backdrop.hidden = true;
+            document.body.appendChild(backdrop);
+        }
+
+        function setOpen(open) {
+            sidebar.classList.toggle("is-open", open);
+            backdrop.hidden = !open;
+            document.body.classList.toggle("drawer-open", open);
+            toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        }
+
+        toggle.addEventListener("click", function () {
+            setOpen(!sidebar.classList.contains("is-open"));
+        });
+        backdrop.addEventListener("click", function () {
+            setOpen(false);
+        });
+        sidebar.addEventListener("click", function (event) {
+            if (event.target.closest("a")) setOpen(false);
+        });
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape") setOpen(false);
+        });
+        window.addEventListener("resize", function () {
+            if (window.getComputedStyle(toggle).display === "none") setOpen(false);
+        });
+    }
+
+    function start() {
         init();
+        initNav();
+        initTopics();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", start);
+    } else {
+        start();
     }
 })();
