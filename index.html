@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Technologies | Assignments &amp; Labs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0d9373;
+            --primary-dark: #0b7d62;
+            --primary-bg: rgba(13, 147, 115, 0.1);
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-900: #111827;
+            --nav-h: 64px;
+            --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+            --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: var(--font);
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--gray-700);
+            background: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: underline;
+            text-decoration-color: rgba(13, 147, 115, 0.35);
+            text-underline-offset: 3px;
+        }
+
+        a:hover { text-decoration-color: var(--primary); }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            height: var(--nav-h);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .navbar-inner {
+            max-width: 72rem;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            color: var(--gray-900);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            letter-spacing: -0.01em;
+        }
+
+        .logo-mark {
+            width: 26px;
+            height: 26px;
+            border-radius: 7px;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8125rem;
+            font-weight: 700;
+        }
+
+        .search {
+            flex: 1;
+            max-width: 28rem;
+            margin-left: auto;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0 0.75rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 0.625rem;
+            background: var(--gray-50);
+            color: var(--gray-500);
+            font-size: 0.875rem;
+        }
+
+        .search kbd {
+            margin-left: auto;
+            font-family: var(--font);
+            font-size: 0.6875rem;
+            color: var(--gray-500);
+            border: 1px solid var(--gray-200);
+            background: #fff;
+            border-radius: 0.25rem;
+            padding: 0.05rem 0.35rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            text-decoration: none;
+        }
+
+        .nav-links a:hover { color: var(--gray-900); }
+
+        .nav-links .btn {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.4375rem 0.875rem;
+            border-radius: 0.5rem;
+        }
+
+        .nav-links .btn:hover {
+            background: var(--primary-dark);
+            color: #fff;
+        }
+
+        .page {
+            max-width: 72rem;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 4rem;
+        }
+
+        .eyebrow {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0 0 0.375rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            line-height: 1.15;
+            color: var(--gray-900);
+            margin: 0 0 0.75rem;
+        }
+
+        .description {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--gray-500);
+            max-width: 40rem;
+            margin: 0 0 3rem;
+        }
+
+        section { margin-bottom: 3.5rem; }
+
+        .section-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        h2 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--gray-900);
+            margin: 0;
+        }
+
+        .count {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--gray-500);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 1rem;
+            background: #fff;
+            color: inherit;
+            text-decoration: none;
+            transition: border-color 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 1px var(--primary);
+        }
+
+        .card-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.625rem;
+            background: var(--primary-bg);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon svg { width: 1.25rem; height: 1.25rem; }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin: 0 0 0.375rem;
+        }
+
+        .card-text {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: var(--gray-500);
+            margin: 0 0 1.25rem;
+        }
+
+        .card-meta {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.125rem 0.5rem;
+            border-radius: 999px;
+            border: 1px solid var(--gray-200);
+            background: var(--gray-50);
+            font-weight: 500;
+            color: var(--gray-600);
+        }
+
+        .tag.done {
+            border-color: rgba(13, 147, 115, 0.3);
+            background: var(--primary-bg);
+            color: var(--primary);
+        }
+
+        .card.placeholder {
+            border-style: dashed;
+            background: var(--gray-50);
+        }
+
+        .card.placeholder:hover {
+            border-color: var(--gray-300);
+            box-shadow: none;
+        }
+
+        .card.placeholder .card-icon {
+            background: var(--gray-100);
+            color: var(--gray-400);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+
+        th {
+            text-align: left;
+            font-weight: 600;
+            color: var(--gray-900);
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid var(--gray-300);
+        }
+
+        td {
+            padding: 0.75rem 0.75rem;
+            border-bottom: 1px solid var(--gray-100);
+            vertical-align: top;
+        }
+
+        code {
+            font-family: var(--mono);
+            font-size: 0.8125em;
+            font-weight: 500;
+            color: var(--gray-900);
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 0.375rem;
+            padding: 0.1rem 0.375rem;
+        }
+
+        .page-footer {
+            margin-top: 4rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .page-footer .links { display: flex; gap: 1.25rem; }
+
+        .page-footer a {
+            color: var(--gray-600);
+            text-decoration: none;
+        }
+
+        .page-footer a:hover { color: var(--primary); }
+
+        @media (max-width: 768px) {
+            .search { display: none; }
+            .nav-links { margin-left: auto; }
+            .page { padding: 2.5rem 1.25rem 3rem; }
+            h1 { font-size: 1.875rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="navbar-inner">
+            <a href="./" class="logo"><span class="logo-mark">W</span>Web Technologies</a>
+            <div class="search">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd"/></svg>
+                <span>Search or ask...</span>
+                <kbd>&#8984; K</kbd>
+            </div>
+            <nav class="nav-links">
+                <a href="#assignments">Assignments</a>
+                <a href="#labs">Labs</a>
+                <a class="btn" href="assignments/index.html">Latest work</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page">
+
+        <p class="eyebrow">Course Workspace</p>
+        <h1>Web Technologies</h1>
+        <p class="description">
+            Everything for the Web Technologies course in one place. Every assignment and lab
+            page lives in this repository and is linked below.
+        </p>
+
+        <section id="assignments">
+            <div class="section-head">
+                <h2>Assignments</h2>
+                <span class="count">1 completed</span>
+            </div>
+            <div class="cards">
+                <a class="card" href="assignments/index.html">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <h3 class="card-title">Assignment 1: Internet &amp; Web Fundamentals</h3>
+                    <p class="card-text">
+                        A documentation style page covering 24 core web concepts: the Internet, WWW, W3C,
+                        pages and sites, browsers, servers, URLs, HTTP and HTTPS, SSL and TLS, HTML, IP, DNS,
+                        search engines, ChatGPT, and hyperlinks.
+                    </p>
+                    <div class="card-meta">
+                        <span class="tag done">Completed</span>
+                        <span class="tag">HTML &amp; CSS</span>
+                        <span>assignments/index.html</span>
+                    </div>
+                </a>
+
+                <a class="card" href="assignments/Assignment%231.pdf" target="_blank">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+                    </div>
+                    <h3 class="card-title">Assignment 1: Brief (PDF)</h3>
+                    <p class="card-text">
+                        The original assignment document with the full list of topics, formatting requirements,
+                        and submission notes.
+                    </p>
+                    <div class="card-meta">
+                        <span class="tag">PDF</span>
+                        <span>assignments/Assignment#1.pdf</span>
+                    </div>
+                </a>
+
+                <div class="card placeholder">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+                    </div>
+                    <h3 class="card-title">Assignment 2</h3>
+                    <p class="card-text">Not published yet. A link will appear here once the work is added to the assignments folder.</p>
+                    <div class="card-meta">
+                        <span class="tag">Upcoming</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="labs">
+            <div class="section-head">
+                <h2>Lab Practice</h2>
+                <span class="count">1 page</span>
+            </div>
+            <div class="cards">
+                <a class="card" href="labs/lab-1.html">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
+                    </div>
+                    <h3 class="card-title">Lab 1: HTML Basics</h3>
+                    <p class="card-text">
+                        First hands-on practice with headings, text formatting tags, images, ordered and
+                        unordered lists, tables, and a simple form.
+                    </p>
+                    <div class="card-meta">
+                        <span class="tag done">Completed</span>
+                        <span class="tag">HTML</span>
+                        <span>labs/lab-1.html</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="index">
+            <div class="section-head">
+                <h2>All pages</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Page</th>
+                        <th>Type</th>
+                        <th>Path</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="assignments/index.html">Internet &amp; Web Fundamentals</a></td>
+                        <td>Assignment 1</td>
+                        <td><code>assignments/index.html</code></td>
+                    </tr>
+                    <tr>
+                        <td><a href="assignments/Assignment%231.pdf" target="_blank">Assignment 1 brief</a></td>
+                        <td>PDF</td>
+                        <td><code>assignments/Assignment#1.pdf</code></td>
+                    </tr>
+                    <tr>
+                        <td><a href="labs/lab-1.html">HTML Basics</a></td>
+                        <td>Lab 1</td>
+                        <td><code>labs/lab-1.html</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <footer class="page-footer">
+            <span>Web Technologies &middot; Course workspace</span>
+            <span class="links">
+                <a href="#assignments">Assignments</a>
+                <a href="#labs">Labs</a>
+                <a href="https://developer.mozilla.org/" target="_blank">MDN</a>
+            </span>
+        </footer>
+
+    </main>
+
+</body>
+</html>

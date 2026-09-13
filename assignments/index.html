@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment #1 | Internet &amp; Web Fundamentals</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0d9373;
+            --primary-dark: #0b7d62;
+            --primary-light: #07c983;
+            --primary-bg: rgba(13, 147, 115, 0.1);
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-900: #111827;
+            --nav-h: 64px;
+            --sidebar-w: 272px;
+            --toc-w: 224px;
+            --content-w: 48rem;
+            --font: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+            --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            font-family: var(--font);
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--gray-700);
+            background: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: underline;
+            text-decoration-color: rgba(13, 147, 115, 0.35);
+            text-underline-offset: 3px;
+        }
+
+        a:hover { text-decoration-color: var(--primary); }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            height: var(--nav-h);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .navbar-inner {
+            max-width: 90rem;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            width: calc(var(--sidebar-w) - 1.5rem);
+            flex-shrink: 0;
+            color: var(--gray-900);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            letter-spacing: -0.01em;
+        }
+
+        .logo-mark {
+            width: 26px;
+            height: 26px;
+            border-radius: 7px;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8125rem;
+            font-weight: 700;
+        }
+
+        .search {
+            flex: 1;
+            max-width: 32rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0 0.75rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 0.625rem;
+            background: var(--gray-50);
+            color: var(--gray-500);
+            font-size: 0.875rem;
+        }
+
+        .search kbd {
+            margin-left: auto;
+            font-family: var(--font);
+            font-size: 0.6875rem;
+            color: var(--gray-500);
+            border: 1px solid var(--gray-200);
+            background: #fff;
+            border-radius: 0.25rem;
+            padding: 0.05rem 0.35rem;
+        }
+
+        .nav-links {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            text-decoration: none;
+        }
+
+        .nav-links a:hover { color: var(--gray-900); }
+
+        .nav-links .btn {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.4375rem 0.875rem;
+            border-radius: 0.5rem;
+        }
+
+        .nav-links .btn:hover {
+            background: var(--primary-dark);
+            color: #fff;
+        }
+
+        .shell {
+            max-width: 90rem;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .sidebar {
+            width: var(--sidebar-w);
+            flex-shrink: 0;
+            position: sticky;
+            top: var(--nav-h);
+            height: calc(100vh - var(--nav-h));
+            overflow-y: auto;
+            padding: 2rem 1.5rem 3rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gray-200) transparent;
+        }
+
+        .group + .group { margin-top: 1.75rem; }
+
+        .group-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin: 0 0 0.375rem;
+            padding: 0 0.75rem;
+        }
+
+        .side-link {
+            display: block;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--gray-700);
+            text-decoration: none;
+            line-height: 1.5;
+        }
+
+        .side-link:hover {
+            background: var(--gray-100);
+            color: var(--gray-900);
+        }
+
+        .side-link.active {
+            background: var(--primary-bg);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .main {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .page {
+            width: 100%;
+            max-width: var(--content-w);
+            padding: 2.5rem 2.5rem 4rem;
+        }
+
+        .eyebrow {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0 0 0.375rem;
+        }
+
+        .page h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            color: var(--gray-900);
+            margin: 0 0 0.625rem;
+        }
+
+        .description {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--gray-500);
+            margin: 0 0 2.5rem;
+        }
+
+        section {
+            margin-bottom: 3.5rem;
+            scroll-margin-top: calc(var(--nav-h) + 1.5rem);
+        }
+
+        section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            color: var(--gray-900);
+            margin: 0 0 1rem;
+        }
+
+        section h3 {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        p { margin: 0 0 1rem; }
+
+        ul, ol {
+            margin: 0 0 1rem;
+            padding-left: 1.5rem;
+        }
+
+        li { margin: 0.25rem 0; }
+        li::marker { color: var(--gray-400); }
+
+        .callout {
+            display: flex;
+            gap: 0.75rem;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0.75rem;
+            border: 1px solid;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .callout::before {
+            content: "";
+            flex-shrink: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-top: 0.1rem;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .callout > div { min-width: 0; }
+        .callout p { margin: 0 0 0.35rem; }
+        .callout ul { margin: 0.25rem 0 0; }
+        .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+
+        .callout.note {
+            background: #f0f9ff;
+            border-color: rgba(14, 165, 233, 0.25);
+            color: #0c4a6e;
+        }
+
+        .callout.note::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%230284c7'%3E%3Cpath fill-rule='evenodd' d='M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-7-4a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM9 9a.75.75 0 0 0 0 1.5h.253a.25.25 0 0 1 .244.304l-.459 2.066A1.75 1.75 0 0 0 10.747 15H11a.75.75 0 0 0 0-1.5h-.253a.25.25 0 0 1-.244-.304l.459-2.066A1.75 1.75 0 0 0 9.253 9H9Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .callout.warning {
+            background: #fffbeb;
+            border-color: rgba(245, 158, 11, 0.3);
+            color: #78350f;
+        }
+
+        .callout.warning::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23d97706'%3E%3Cpath fill-rule='evenodd' d='M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495ZM10 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 10 5Zm0 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .section-image {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 1rem;
+            border: 1px solid rgba(3, 7, 18, 0.1);
+            margin: 1.5rem 0 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.875rem;
+        }
+
+        th {
+            text-align: left;
+            font-weight: 600;
+            color: var(--gray-900);
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid var(--gray-300);
+        }
+
+        td {
+            padding: 0.625rem 0.75rem;
+            border-bottom: 1px solid var(--gray-100);
+            vertical-align: top;
+        }
+
+        code {
+            font-family: var(--mono);
+            font-size: 0.8125em;
+            font-weight: 500;
+            color: var(--gray-900);
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 0.375rem;
+            padding: 0.1rem 0.375rem;
+        }
+
+        .code-block {
+            margin: 1.5rem 0;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            background: #0f1117;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .code-header::before {
+            content: "";
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: var(--primary-light);
+        }
+
+        pre {
+            margin: 0;
+            padding: 1rem 1.25rem;
+            font-family: var(--mono);
+            font-size: 0.8125rem;
+            line-height: 1.65;
+            color: #e5e7eb;
+            overflow-x: auto;
+        }
+
+        .page-footer {
+            margin-top: 4rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .page-footer .links { display: flex; gap: 1.25rem; }
+
+        .page-footer a {
+            color: var(--gray-600);
+            text-decoration: none;
+        }
+
+        .page-footer a:hover { color: var(--primary); }
+
+        .toc {
+            width: var(--toc-w);
+            flex-shrink: 0;
+            position: sticky;
+            top: var(--nav-h);
+            height: calc(100vh - var(--nav-h));
+            overflow-y: auto;
+            padding: 2.5rem 0 3rem 1.5rem;
+            font-size: 0.875rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gray-200) transparent;
+        }
+
+        .toc-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin: 0 0 0.75rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .toc li { margin: 0; }
+
+        .toc a {
+            display: block;
+            padding: 0.25rem 0;
+            color: var(--gray-500);
+            font-weight: 400;
+            line-height: 1.45;
+            text-decoration: none;
+        }
+
+        .toc a:hover { color: var(--gray-900); }
+
+        .toc a.active {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        @media (max-width: 1280px) {
+            .toc { display: none; }
+        }
+
+        @media (max-width: 1024px) {
+            .search { display: none; }
+            .logo { width: auto; }
+            .shell { flex-direction: column; padding: 0 1.25rem; }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                padding: 1.5rem 0 1rem;
+                border-bottom: 1px solid var(--gray-200);
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+
+            .group + .group { margin-top: 0; }
+            .page { padding: 2rem 0 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar" id="top">
+        <div class="navbar-inner">
+            <a href="#top" class="logo"><span class="logo-mark">W</span>Web Fundamentals</a>
+            <div class="search">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd"/></svg>
+                <span>Search or ask...</span>
+                <kbd>&#8984; K</kbd>
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html">All work</a>
+                <a href="Assignment%231.pdf" target="_blank">Assignment PDF</a>
+                <a href="https://www.w3.org/" target="_blank">W3C</a>
+                <a class="btn" href="https://developer.mozilla.org/" target="_blank">MDN Docs</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="shell">
+
+        <aside class="sidebar">
+            <div class="group">
+                <p class="group-title">Foundations</p>
+                <a class="side-link" href="#internet">The Internet</a>
+                <a class="side-link" href="#www">The World Wide Web</a>
+                <a class="side-link" href="#w3c">W3C</a>
+            </div>
+            <div class="group">
+                <p class="group-title">Pages &amp; Sites</p>
+                <a class="side-link" href="#webpage">Web Page</a>
+                <a class="side-link" href="#website">Website</a>
+                <a class="side-link" href="#homepage">Home Page</a>
+                <a class="side-link" href="#indexpage">Index Page</a>
+                <a class="side-link" href="#landingpage">Landing Page</a>
+            </div>
+            <div class="group">
+                <p class="group-title">Client &amp; Server</p>
+                <a class="side-link" href="#browser">Web Browser</a>
+                <a class="side-link" href="#webserver">Web Server</a>
+                <a class="side-link" href="#domain">Web Domain</a>
+            </div>
+            <div class="group">
+                <p class="group-title">Addressing</p>
+                <a class="side-link" href="#url">URL</a>
+                <a class="side-link" href="#uri">URI</a>
+            </div>
+            <div class="group">
+                <p class="group-title">Protocols</p>
+                <a class="side-link" href="#http">HTTP</a>
+                <a class="side-link" href="#https">HTTPS</a>
+                <a class="side-link" href="#ssl">SSL</a>
+                <a class="side-link" href="#tls">TLS</a>
+            </div>
+            <div class="group">
+                <p class="group-title">Markup</p>
+                <a class="side-link" href="#html">HTML</a>
+            </div>
+            <div class="group">
+                <p class="group-title">Networking</p>
+                <a class="side-link" href="#ip">IP Address</a>
+                <a class="side-link" href="#dns">DNS</a>
+                <a class="side-link" href="#nslookup">nslookup</a>
+            </div>
+            <div class="group">
+                <p class="group-title">Discovery</p>
+                <a class="side-link" href="#searchengines">Search Engines</a>
+                <a class="side-link" href="#chatgpt">ChatGPT</a>
+                <a class="side-link" href="#hyperlinks">Hyperlinks</a>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="page">
+
+            <p class="eyebrow">Web Technologies</p>
+            <h1>Internet &amp; Web Fundamentals</h1>
+            <p class="description">The 24 core concepts behind how the web works, from networks and protocols to pages, addresses, and the tools that tie them together.</p>
+
+            <section id="internet">
+                <h2>The Internet</h2>
+                <p>
+                    <strong>Internet</strong> is a global network of interconnected computer networks that communicate
+                    using standard protocols such as <em>TCP/IP</em>.
+                </p>
+                <ul>
+                    <li><b>ARPANET (1969):</b> One of the earliest operational packet-switching networks and an important predecessor of today's Internet.</li>
+                    <li>The Internet connects computers, servers, smartphones, networks, and other devices worldwide.</li>
+                </ul>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Earth at night with city lights forming a connected global network"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="www">
+                <h2>The World Wide Web (Web)</h2>
+                <p>
+                    <strong>World Wide Web (WWW)</strong> is a collection of digital or electronic resources available via
+                    Internet. Web is a service that operates over the Internet and allows users to access interconnected
+                    web pages through hyperlinks.
+                </p>
+                <ul>
+                    <li>Invented by <i>Tim Berners-Lee</i> in 1989.</li>
+                    <li>The Web uses technologies such as HTML, HTTP, URLs, and web browsers.</li>
+                </ul>
+                <p>
+                    Learn more at the
+                    <a href="https://www.w3.org/History.html" target="_blank">W3C History of the Web</a>.
+                </p>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Satellite orbiting Earth, a world wide system of information"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="w3c">
+                <h2>W3C (World Wide Web Consortium)</h2>
+                <p>The W3C develops and maintains standards and recommendations for the Web.</p>
+                <p>Examples include standards related to:</p>
+                <ol>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Web accessibility</li>
+                    <li>Web architecture</li>
+                </ol>
+                <p>
+                    Official website:
+                    <a href="https://www.w3.org/" target="_blank">https://www.w3.org/</a>
+                </p>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Team working together around a table to agree on shared standards"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="webpage">
+                <h2>Web Page</h2>
+                <p>A <strong>web page</strong> is a single document available on the Web, usually created using HTML.</p>
+                <div class="callout note"><div>
+                    <p><b>Example:</b></p>
+                    <p><a href="https://example.com/about.html">https://example.com/about.html</a></p>
+                    <p><em>The About page is one web page.</em></p>
+                </div></div>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1611262588019-db6cc2032da3?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="A single page saying hello displayed on a classic computer screen"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="website">
+                <h2>Website</h2>
+                <p>A <strong>website</strong> is a collection of related web pages and resources available under a common domain.</p>
+                <p><b>Example:</b> <a href="https://www.example.com">https://www.example.com</a></p>
+                <p>A website may contain:</p>
+                <ul>
+                    <li>Home page</li>
+                    <li>About page</li>
+                    <li>Contact page</li>
+                    <li>Services page</li>
+                    <li>Blog pages</li>
+                </ul>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1530435460869-d13625c69bbf?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="A website layout with several pages shown on a monitor"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="homepage">
+                <h2>Home Page</h2>
+                <p>The <strong>home page</strong> is generally the main or introductory page of a website.</p>
+                <p><b>Example:</b> <a href="https://www.example.com/">https://www.example.com/</a></p>
+                <p>It normally provides navigation to other important sections.</p>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Designer sketching a home page wireframe on paper"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="indexpage">
+                <h2>Index Page</h2>
+                <p>
+                    An <strong>index page</strong> is commonly the default page served when a directory or website
+                    location is accessed.
+                </p>
+                <p>Typical filenames include:</p>
+                <ul>
+                    <li><code>index.html</code></li>
+                    <li><code>index.php</code></li>
+                    <li><code>index.htm</code></li>
+                </ul>
+                <p>
+                    For example, <a href="https://example.com/">https://example.com/</a> may automatically load
+                    <code>index.html</code>.
+                </p>
+                <div class="callout warning"><div><p><u>Important:</u> A home page and an index page are related concepts but are <strong>not necessarily identical</strong>.</p></div></div>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="index.html source code open in a code editor"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="landingpage">
+                <h2>Landing Page</h2>
+                <p>
+                    A <strong>landing page</strong> is a web page designed for a specific purpose, often after a user
+                    clicks an advertisement, email link, or search result.
+                </p>
+                <h3>Typical goals:</h3>
+                <ol>
+                    <li>Register for a course</li>
+                    <li>Buy a product</li>
+                    <li>Download an application</li>
+                    <li>Submit a form</li>
+                </ol>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Colorful page mockups and layouts for a marketing landing page"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="browser">
+                <h2>Web Browser</h2>
+                <p>A <strong>web browser</strong> is software used to access and display web pages.</p>
+                <p><b>Examples:</b></p>
+                <ul>
+                    <li><a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a></li>
+                    <li><a href="https://www.mozilla.org/firefox/" target="_blank">Mozilla Firefox</a></li>
+                    <li><a href="https://www.microsoft.com/edge" target="_blank">Microsoft Edge</a></li>
+                    <li><a href="https://www.apple.com/safari/" target="_blank">Safari</a></li>
+                </ul>
+                <p>A browser sends requests to web servers and renders the returned content.</p>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="A web page open in a browser on a laptop"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="webserver">
+                <h2>Web Server</h2>
+                <p>
+                    A <strong>web server</strong> is a computer/system and software that stores, processes, and delivers
+                    web resources to clients.
+                </p>
+                <p>Common web-server software includes:</p>
+                <ul>
+                    <li>Apache</li>
+                    <li>Nginx</li>
+                    <li>Microsoft IIS</li>
+                </ul>
+                <p><b>Basic communication:</b></p>
+                <div class="code-block"><div class="code-header">Request / Response</div><pre>Web Browser  &rarr;  HTTP/HTTPS Request  &rarr;  Web Server
+Web Browser  &larr;  HTTP/HTTPS Response  &larr;  Web Server</pre></div>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Server racks with network cabling in a data center"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="domain">
+                <h2>Web Domain</h2>
+                <p>
+                    A <strong>domain name</strong> is a human-readable name used to identify a website or Internet service.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Example</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Domain Name</td>
+                            <td><a href="https://www.example.com">www.example.com</a></td>
+                            <td>Easy to remember</td>
+                        </tr>
+                        <tr>
+                            <td>IP Address</td>
+                            <td>93.184.216.34</td>
+                            <td>Numeric address of the server</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Instead of remembering an IP address, users can use the domain name.</p>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="A website reached by its domain name, open on a laptop"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="url">
+                <h2>URL (Uniform Resource Locator)</h2>
+                <p>A <strong>URL</strong> specifies the location of a resource and how to access it.</p>
+                <div class="callout note"><div>
+                    <p><b>Example URL breakdown:</b></p>
+                    <p><code>https://www.example.com:443/path/page.html?query=1#section</code></p>
+                    <ul>
+                        <li><strong>Protocol:</strong> https</li>
+                        <li><strong>Domain:</strong> www.example.com</li>
+                        <li><strong>Port:</strong> 443</li>
+                        <li><strong>Path:</strong> /path/page.html</li>
+                        <li><strong>Query:</strong> ?query=1</li>
+                        <li><strong>Fragment:</strong> #section</li>
+                    </ul>
+                </div></div>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1594322436404-5a0526db4d13?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="A 404 not found screen shown when a URL points to a missing page"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="uri">
+                <h2>URI (Uniform Resource Identifier)</h2>
+                <p>A <strong>URI</strong> is a broader concept used to identify a resource.</p>
+                <p>A URL is a <em>type of</em> URI.</p>
+                <p><b>Simple distinction:</b></p>
+                <ul>
+                    <li><strong>URI</strong> identifies a resource</li>
+                    <li><strong>URL</strong> identifies a resource and provides its location/access method</li>
+                </ul>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1566241440091-ec10de8db2e1?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Browser address bar showing github.com/facebook/react as a resource identifier"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="http">
+                <h2>HTTP (HyperText Transfer Protocol)</h2>
+                <p><strong>HTTP</strong> is the protocol used for communication between web clients and servers.</p>
+                <p><b>Example:</b></p>
+                <ul>
+                    <li>Browser &rarr; HTTP Request &rarr; Server</li>
+                    <li>Browser &larr; HTTP Response &larr; Server</li>
+                </ul>
+                <p>HTTP commonly uses <strong>port 80</strong>.</p>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1488229297570-58520851e868?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Streams of light representing data transferred between client and server"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="https">
+                <h2>HTTPS (HyperText Transfer Protocol Secure)</h2>
+                <p>
+                    <strong>HTTPS</strong> is HTTP communication protected using modern cryptographic security,
+                    primarily through TLS.
+                </p>
+                <p>It provides:</p>
+                <ol>
+                    <li>Encryption</li>
+                    <li>Authentication</li>
+                    <li>Data integrity</li>
+                </ol>
+                <p>HTTPS commonly uses <strong>port 443</strong>.</p>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Person entering card details on a laptop over a secure connection"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="ssl">
+                <h2>SSL (Secure Sockets Layer)</h2>
+                <p>
+                    <strong>SSL</strong> was an earlier security protocol designed to secure network communication.
+                </p>
+                <div class="callout warning"><div><p><u>Important:</u> SSL has been <strong>deprecated</strong> and replaced by TLS. Modern HTTPS uses TLS, not SSL.</p></div></div>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Red padlock resting on a keyboard, symbolizing encrypted connections"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="tls">
+                <h2>TLS (Transport Layer Security)</h2>
+                <p>
+                    <strong>TLS</strong> is the modern cryptographic protocol used to secure communications such as HTTPS.
+                </p>
+                <p><b>A simplified model:</b></p>
+                <div class="code-block"><div class="code-header">TLS Handshake</div><pre>Client  &rarr;  TLS Handshake  &rarr;  Server
+Client  &larr;  Encrypted Data  &larr;  Server</pre></div>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1633265486064-086b219458ec?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Combination padlock on a keyboard representing TLS security"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="html">
+                <h2>HTML (HyperText Markup Language)</h2>
+                <p><strong>HTML</strong> is the standard markup language used to structure web pages.</p>
+                <h3>Basic Structure of a web page (boilerplate):</h3>
+                <div class="code-block"><div class="code-header">index.html</div><pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Web Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;</pre></div>
+                <p>
+                    See also:
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN HTML Documentation</a>
+                </p>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Red HTML code brackets symbol on a light background"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="ip">
+                <h2>IP Address</h2>
+                <p>
+                    An <strong>IP address</strong> is a unique numeric address that identifies a device on the internet
+                    or a local network.
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Version</th>
+                            <th>Example</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>IPv4</td>
+                            <td>192.168.1.10</td>
+                            <td>32-bit dotted decimal</td>
+                        </tr>
+                        <tr>
+                            <td>IPv6</td>
+                            <td>2001:db8::1</td>
+                            <td>128-bit hexadecimal</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    A domain name is translated into an IP address so that network communication can take place.
+                </p>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Blue ethernet cables plugged into a network switch"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="dns">
+                <h2>DNS (Domain Name System)</h2>
+                <p>
+                    <strong>DNS</strong> translates human-readable domain names into IP addresses and performs other
+                    naming functions.
+                </p>
+                <p><b>Example:</b></p>
+                <p><code>www.example.com</code> &rarr; DNS &rarr; <code>93.184.216.34</code></p>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Wooden card catalog drawers, a directory for looking up names"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="nslookup">
+                <h2>NSlookup / nslookup</h2>
+                <p><strong>nslookup</strong> is a command-line tool used to query DNS information.</p>
+                <p><b>Example:</b></p>
+                <div class="code-block"><div class="code-header">Terminal</div><pre>nslookup example.com</pre></div>
+                <p>It can help determine:</p>
+                <ul>
+                    <li>IP addresses associated with domains</li>
+                    <li>DNS server information</li>
+                    <li>DNS records</li>
+                </ul>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Terminal windows with command output on a dark screen"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="searchengines">
+                <h2>Search Engines</h2>
+                <p>
+                    A <strong>search engine</strong> is a service that helps users find information and web pages on
+                    the Internet.
+                </p>
+                <p><b>Examples:</b></p>
+                <ul>
+                    <li><a href="https://www.google.com" target="_blank">Google</a></li>
+                    <li><a href="https://www.bing.com" target="_blank">Bing</a></li>
+                    <li><a href="https://duckduckgo.com" target="_blank">DuckDuckGo</a></li>
+                </ul>
+                <p><b>Basic process:</b></p>
+                <ol>
+                    <li>User enters query</li>
+                    <li>Search Engine</li>
+                    <li>Search Index</li>
+                    <li>Relevant Results</li>
+                    <li>User selects a result</li>
+                </ol>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1573804633927-bfcbcd909acd?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Google logo in colorful neon letters"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="chatgpt">
+                <h2>ChatGPT</h2>
+                <p>
+                    <strong>ChatGPT</strong> is an AI-based conversational system developed by OpenAI. It can understand
+                    natural-language prompts and generate responses, explanations, summaries, code, and other content.
+                </p>
+                <p><b>Important distinction:</b></p>
+                <p>
+                    A <em>search engine</em> primarily helps users <strong>find existing information</strong>, while
+                    <em>ChatGPT</em> primarily <strong>generates responses</strong> based on its model and available
+                    information/tools.
+                </p>
+                <p>
+                    Visit:
+                    <a href="https://chat.openai.com" target="_blank">https://chat.openai.com</a>
+                </p>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Three dimensional AI letters representing artificial intelligence"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+            <section id="hyperlinks">
+                <h2>Hyperlinks / Links</h2>
+                <p>A <strong>hyperlink</strong> is a clickable reference that connects one resource to another.</p>
+                <p><b>HTML example:</b></p>
+                <div class="code-block"><div class="code-header">Example</div><pre>&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;</pre></div>
+                <p>Links can connect:</p>
+                <ul>
+                    <li>One web page to another</li>
+                    <li>One section to another (e.g., <a href="#top">Back to top</a>)</li>
+                    <li>A website to another website</li>
+                    <li>A page to a file or resource</li>
+                </ul>
+                <img class="section-image"
+                         src="https://images.unsplash.com/photo-1504270997636-07ddfbd48945?auto=format&amp;fit=crop&amp;w=900&amp;h=506&amp;q=80"
+                         alt="Hands holding a tablet showing a connect button"
+                         width="900"
+                         height="506"
+                         loading="lazy">
+            </section>
+
+        <footer class="page-footer">
+                <span>Web Technologies &middot; Assignment 1</span>
+                <span class="links">
+                    <a href="#top">Back to top</a>
+                    <a href="Assignment%231.pdf" target="_blank">Assignment PDF</a>
+                </span>
+            </footer>
+
+            </div>
+        </main>
+
+        <aside class="toc">
+            <p class="toc-title">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M2 4.75A.75.75 0 0 1 2.75 4h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 4.75ZM2 10a.75.75 0 0 1 .75-.75h14.5a.75.75 0 0 1 0 1.5H2.75A.75.75 0 0 1 2 10Zm0 5.25a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"/></svg>
+                On this page
+            </p>
+            <ul>
+                <li><a href="#internet">The Internet</a></li>
+                <li><a href="#www">The World Wide Web</a></li>
+                <li><a href="#w3c">W3C</a></li>
+                <li><a href="#webpage">Web Page</a></li>
+                <li><a href="#website">Website</a></li>
+                <li><a href="#homepage">Home Page</a></li>
+                <li><a href="#indexpage">Index Page</a></li>
+                <li><a href="#landingpage">Landing Page</a></li>
+                <li><a href="#browser">Web Browser</a></li>
+                <li><a href="#webserver">Web Server</a></li>
+                <li><a href="#domain">Web Domain</a></li>
+                <li><a href="#url">URL</a></li>
+                <li><a href="#uri">URI</a></li>
+                <li><a href="#http">HTTP</a></li>
+                <li><a href="#https">HTTPS</a></li>
+                <li><a href="#ssl">SSL</a></li>
+                <li><a href="#tls">TLS</a></li>
+                <li><a href="#html">HTML</a></li>
+                <li><a href="#ip">IP Address</a></li>
+                <li><a href="#dns">DNS</a></li>
+                <li><a href="#nslookup">nslookup</a></li>
+                <li><a href="#searchengines">Search Engines</a></li>
+                <li><a href="#chatgpt">ChatGPT</a></li>
+                <li><a href="#hyperlinks">Hyperlinks</a></li>
+            </ul>
+        </aside>
+
+    </div>
+
+    <script>
+        (function () {
+            var links = document.querySelectorAll(".side-link, .toc a");
+            var sections = document.querySelectorAll("section[id]");
+            function setActive(id) {
+                links.forEach(function (l) {
+                    l.classList.toggle("active", l.getAttribute("href") === "#" + id);
+                });
+            }
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) setActive(e.target.id);
+                });
+            }, { rootMargin: "-80px 0px -70% 0px" });
+            sections.forEach(function (s) { observer.observe(s); });
+        })();
+    </script>
+</body>
+</html>
