@@ -114,7 +114,17 @@
             border-radius: 0.625rem;
             background: var(--gray-50);
             color: var(--gray-500);
+            font: inherit;
             font-size: 0.875rem;
+            text-align: left;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .search:hover {
+            border-color: var(--gray-300);
+            background: #fff;
         }
 
         .search kbd {
@@ -471,7 +481,13 @@
         }
 
         @media (max-width: 1024px) {
-            .search { display: none; }
+            .search span, .search kbd { display: none; }
+            .search {
+                flex: 0 0 2.5rem;
+                max-width: 2.5rem;
+                padding: 0;
+                justify-content: center;
+            }
             .logo { width: auto; }
             .shell { flex-direction: column; padding: 0 1.25rem; }
 
@@ -496,11 +512,11 @@
     <header class="navbar" id="top">
         <div class="navbar-inner">
             <a href="#top" class="logo"><span class="logo-mark">W</span>Web Fundamentals</a>
-            <div class="search">
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd"/></svg>
+            <button type="button" class="search" aria-label="Search">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd"/></svg>
                 <span>Search or ask...</span>
                 <kbd>&#8984; K</kbd>
-            </div>
+            </button>
             <nav class="nav-links">
                 <a href="../index.html">All work</a>
                 <a href="Assignment%231.pdf" target="_blank">Assignment PDF</a>
@@ -1148,5 +1164,6 @@ Client  &larr;  Encrypted Data  &larr;  Server</pre></div>
             sections.forEach(function (s) { observer.observe(s); });
         })();
     </script>
+    <script src="../search.js"></script>
 </body>
 </html>
