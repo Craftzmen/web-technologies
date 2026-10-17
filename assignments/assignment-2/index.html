@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon Trail | Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        summary::-webkit-details-marker { display: none; }
+
+        a, summary {
+            transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+        }
+
+        nav > a:hover {
+            background-color: #ebebeb !important;
+        }
+
+        nav details summary:hover {
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14) !important;
+        }
+
+        details.menu > summary {
+            border-radius: 32px;
+        }
+
+        details.menu > summary:hover {
+            background-color: #f2f2f2 !important;
+        }
+
+        details.menu a:hover {
+            background-color: #f7f7f7 !important;
+        }
+
+        details.menu[open] > div {
+            animation: menu-in 0.2s ease;
+        }
+
+        a[aria-label="Search packages"] {
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        a[aria-label="Search packages"]:hover {
+            transform: scale(1.07);
+            filter: brightness(1.06);
+        }
+
+        a[aria-label="Search packages"]:active {
+            transform: scale(0.96);
+        }
+
+        header a[href^="#"] {
+            transition: color 0.2s ease;
+        }
+
+        header a[href^="#"]:hover {
+            color: #222222 !important;
+        }
+
+        header a[href^="#"]:hover path {
+            stroke: #222222;
+            transition: stroke 0.2s ease;
+        }
+
+        main li a img {
+            transition: transform 0.45s ease;
+        }
+
+        main li a:hover img {
+            transform: scale(1.06);
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        @keyframes menu-in {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body style="margin: 0; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.43; background-color: #ffffff; color: #222222; -webkit-font-smoothing: antialiased;">
+
+    <!-- Site header: wordmark, search, and page links -->
+    <header style="position: sticky; top: 0; z-index: 20; background-color: #ffffff;">
+        <div style="display: flex; align-items: center; gap: 24px; max-width: 1760px; margin: 0 auto; padding: 14px 40px 10px; box-sizing: border-box; flex-wrap: wrap;">
+            <h1 style="margin: 0; flex: 0 0 auto; display: flex; align-items: center; gap: 2px; font-size: 20px; font-weight: 800; letter-spacing: -0.05em; color: #ff385c; line-height: 1;">
+                <svg width="26" height="32" viewBox="5 1 22 30" aria-hidden="true" style="display: block; flex: 0 0 auto;">
+                    <path fill="#ff385c" d="M16 1.6C10.1 1.6 5.4 6.2 5.4 12c0 7.2 10.6 18.4 10.6 18.4S26.6 19.2 26.6 12C26.6 6.2 21.9 1.6 16 1.6zm0 14.1a3.8 3.8 0 1 1 0-7.6 3.8 3.8 0 0 1 0 7.6z"/>
+                </svg>
+                <span>Horizon Trail</span>
+            </h1>
+
+            <div style="flex: 1 1 280px; display: flex; justify-content: center; min-width: 0;">
+                <div style="display: flex; align-items: stretch; width: 100%; max-width: 850px; min-height: 66px; background: #ffffff; border: 1px solid #dddddd; border-radius: 40px; box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);">
+                    <details class="menu" style="position: relative; flex: 1 1 0; min-width: 0; border-right: 1px solid #dddddd;">
+                        <summary style="list-style: none; cursor: pointer; display: flex; flex-direction: column; justify-content: center; min-height: 66px; padding: 14px 24px; box-sizing: border-box;">
+                            <span style="font-size: 12px; font-weight: 700; color: #222222; line-height: 16px;">Where</span>
+                            <span style="font-size: 14px; font-weight: 400; color: #6a6a6a; line-height: 18px; margin-top: 2px;">Search destinations</span>
+                        </summary>
+                        <div style="position: absolute; top: calc(100% + 12px); left: 0; z-index: 40; width: 260px; padding: 8px; background: #ffffff; border-radius: 16px; border: 1px solid #ebebeb; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
+                            <a href="#hunza" style="display: block; padding: 12px 14px; border-radius: 10px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">Hunza Valley</a>
+                            <a href="#istanbul" style="display: block; padding: 12px 14px; border-radius: 10px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">Istanbul</a>
+                            <a href="#bali" style="display: block; padding: 12px 14px; border-radius: 10px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">Bali</a>
+                            <a href="#rome" style="display: block; padding: 12px 14px; border-radius: 10px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">Rome</a>
+                        </div>
+                    </details>
+                    <details class="menu" style="position: relative; flex: 1 1 0; min-width: 0; border-right: 1px solid #dddddd;">
+                        <summary style="list-style: none; cursor: pointer; display: flex; flex-direction: column; justify-content: center; min-height: 66px; padding: 14px 24px; box-sizing: border-box;">
+                            <span style="font-size: 12px; font-weight: 700; color: #222222; line-height: 16px;">When</span>
+                            <span style="font-size: 14px; font-weight: 400; color: #6a6a6a; line-height: 18px; margin-top: 2px;">Spring 2026</span>
+                        </summary>
+                        <div style="position: absolute; top: calc(100% + 12px); left: 0; z-index: 40; width: 260px; padding: 8px; background: #ffffff; border-radius: 16px; border: 1px solid #ebebeb; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
+                            <a href="#hunza" style="display: block; padding: 12px 14px; border-radius: 10px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">Mar 12 – 19 · Hunza</a>
+                            <a href="#istanbul" style="display: block; padding: 12px 14px; border-radius: 10px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">Apr 2 – 9 · Istanbul</a>
+                            <a href="#bali" style="display: block; padding: 12px 14px; border-radius: 10px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">May 6 – 13 · Bali</a>
+                            <a href="#rome" style="display: block; padding: 12px 14px; border-radius: 10px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">Jun 3 – 10 · Rome</a>
+                        </div>
+                    </details>
+                    <div style="position: relative; flex: 1.15 1 0; min-width: 0; display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 0;">
+                        <details class="menu" style="position: relative; flex: 1; min-width: 0;">
+                            <summary style="list-style: none; cursor: pointer; display: flex; flex-direction: column; justify-content: center; min-height: 50px; padding: 8px 8px 8px 24px; box-sizing: border-box;">
+                                <span style="font-size: 12px; font-weight: 700; color: #222222; line-height: 16px;">Who</span>
+                                <span style="font-size: 14px; font-weight: 400; color: #6a6a6a; line-height: 18px; margin-top: 2px;">Add guests</span>
+                            </summary>
+                            <div style="position: absolute; top: calc(100% + 16px); right: 0; z-index: 40; width: 260px; padding: 8px; background: #ffffff; border-radius: 16px; border: 1px solid #ebebeb; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
+                                <a href="registration.html" style="display: block; padding: 12px 14px; border-radius: 10px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">Just me</a>
+                                <a href="registration.html" style="display: block; padding: 12px 14px; border-radius: 10px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">Small group, up to 12</a>
+                            </div>
+                        </details>
+                        <a href="information.html" aria-label="Search packages" style="flex: 0 0 auto; width: 48px; height: 48px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%); text-decoration: none;">
+                            <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true" style="display: block;">
+                                <path fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" d="M13 24a11 11 0 1 1 0-22 11 11 0 0 1 0 22z"></path>
+                                <path fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" d="M21 21l8 8"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <nav aria-label="Main" style="flex: 0 0 auto; display: flex; align-items: center; gap: 4px;">
+                <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 22px; background-color: #f7f7f7; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="display: block;">
+                        <path fill="none" stroke="#222222" stroke-width="1.8" stroke-linejoin="round" d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z"></path>
+                    </svg>
+                    Home
+                </a>
+                <a href="information.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 22px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="display: block;">
+                        <path fill="none" stroke="#222222" stroke-width="1.8" stroke-linecap="round" d="M8 6h12M8 12h12M8 18h12"></path>
+                        <path fill="#222222" d="M4 6h.01M4 12h.01M4 18h.01" stroke="#222222" stroke-width="3" stroke-linecap="round"></path>
+                    </svg>
+                    Tour packages
+                </a>
+                <details class="menu" style="position: relative; margin-left: 4px;">
+                    <summary style="list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; padding: 5px 5px 5px 14px; border: 1px solid #dddddd; border-radius: 24px; color: #222222; font-size: 14px; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,0.08);">
+                        Menu
+                        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="display: block;">
+                            <path fill="none" stroke="#222222" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path>
+                        </svg>
+                        <span style="width: 30px; height: 30px; border-radius: 50%; background-color: #717171; display: inline-flex; align-items: center; justify-content: center;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="display: block;">
+                                <circle cx="12" cy="8" r="3.2" fill="#ffffff"></circle>
+                                <path fill="#ffffff" d="M6 19.2c.8-2.6 3-4 6-4s5.2 1.4 6 4"></path>
+                            </svg>
+                        </span>
+                    </summary>
+                    <div style="position: absolute; top: calc(100% + 10px); right: 0; z-index: 50; width: 230px; padding: 8px; background: #ffffff; border-radius: 16px; border: 1px solid #ebebeb; box-shadow: 0 4px 16px rgba(0,0,0,0.16);">
+                        <a href="index.html" style="display: block; padding: 12px 14px; border-radius: 10px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">Home</a>
+                        <a href="information.html" style="display: block; padding: 12px 14px; border-radius: 10px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">Tour packages</a>
+                        <a href="registration.html" style="display: block; padding: 12px 14px; border-radius: 10px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: none;">Book a trip</a>
+                    </div>
+                </details>
+            </nav>
+        </div>
+
+        <!-- Category row -->
+        <div style="display: flex; justify-content: center; gap: 8px 36px; flex-wrap: wrap; max-width: 1760px; margin: 0 auto; padding: 4px 40px 0; border-bottom: 1px solid #ebebeb; box-sizing: border-box;">
+            <a href="#hunza" style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px 4px 10px; color: #717171; font-size: 12px; font-weight: 600; text-decoration: none;">
+                <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true" style="display: block;">
+                    <path fill="none" stroke="#717171" stroke-width="1.6" stroke-linejoin="round" d="M3 24 12 8l5 8 4-6 8 14H3z"></path>
+                </svg>
+                Mountains
+            </a>
+            <a href="#istanbul" style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px 4px 10px; color: #717171; font-size: 12px; font-weight: 600; text-decoration: none;">
+                <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true" style="display: block;">
+                    <path fill="none" stroke="#717171" stroke-width="1.6" d="M6 26V12h8v14M16 26V6h10v20M6 26h20M9 16h2M9 20h2M19 10h2M19 14h2M19 18h2"></path>
+                </svg>
+                Cities
+            </a>
+            <a href="#bali" style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px 4px 8px; margin-bottom: -1px; border-bottom: 2px solid #222222; color: #222222; font-size: 12px; font-weight: 600; text-decoration: none;">
+                <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true" style="display: block;">
+                    <path fill="none" stroke="#222222" stroke-width="1.6" stroke-linecap="round" d="M4 22c3.2-3 6.4-3 9.6 0s6.4 3 9.6 0 6.4-3 4.8 0"></path>
+                    <path fill="none" stroke="#222222" stroke-width="1.6" stroke-linecap="round" d="M16 22V10M16 10c5 1.2 7 5 0 7"></path>
+                </svg>
+                Beach
+            </a>
+            <a href="#rome" style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px 4px 10px; color: #717171; font-size: 12px; font-weight: 600; text-decoration: none;">
+                <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true" style="display: block;">
+                    <path fill="none" stroke="#717171" stroke-width="1.6" stroke-linecap="round" d="M4 12h24M6 12v12M12 12v12M20 12v12M26 12v12M4 24h24M8 12V8h16v4"></path>
+                </svg>
+                Landmarks
+            </a>
+        </div>
+    </header>
+
+    <main style="max-width: 1760px; margin: 0 auto; padding: 28px 40px 64px; box-sizing: border-box;">
+
+        <!-- Introduction -->
+        <section>
+            <h2 style="margin: 0 0 6px; font-size: 22px; font-weight: 600; letter-spacing: -0.02em; color: #222222;">Introduction</h2>
+            <p style="margin: 0 0 22px; max-width: 640px; font-size: 16px; color: #6a6a6a;">
+                Seven-night small-group trips. Guide, hotel, and breakfast are included. You book your own flights.
+            </p>
+            <ul style="display: flex; flex-wrap: wrap; gap: 12px; list-style: none; margin: 0; padding: 0;">
+                <li style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #dddddd; border-radius: 24px; font-size: 14px; font-weight: 500;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2" fill="none" stroke="#222" stroke-width="1.7"/><path d="M3.5 9.5h17M8 3.5V7M16 3.5V7" fill="none" stroke="#222" stroke-width="1.7" stroke-linecap="round"/></svg>
+                    7 days
+                </li>
+                <li style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #dddddd; border-radius: 24px; font-size: 14px; font-weight: 500;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="2.4" fill="none" stroke="#222" stroke-width="1.7"/><circle cx="16" cy="9" r="2" fill="none" stroke="#222" stroke-width="1.7"/><path d="M3.5 19c.6-2.6 2.6-4 5.5-4s4.9 1.4 5.5 4M14 15.2c1.6-.3 3.2.2 4.2 1.4.7.8 1.1 1.7 1.3 2.4" fill="none" stroke="#222" stroke-width="1.7" stroke-linecap="round"/></svg>
+                    12 guests
+                </li>
+                <li style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid #dddddd; border-radius: 24px; font-size: 14px; font-weight: 500;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.1-6-10a6 6 0 1 1 12 0c0 4.9-6 10-6 10z" fill="none" stroke="#222" stroke-width="1.7"/><circle cx="12" cy="11" r="2" fill="none" stroke="#222" stroke-width="1.7"/></svg>
+                    4 places
+                </li>
+            </ul>
+        </section>
+
+        <!-- Destinations -->
+        <section style="margin-top: 40px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px;">
+                <h2 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.02em;">Destinations we book</h2>
+                <a href="information.html" style="display: inline-flex; align-items: center; gap: 4px; color: #222222; font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px;">
+                    Show all
+                    <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="#222" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <ul style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 32px 16px; list-style: none; margin: 0; padding: 0;">
+                <li id="hunza" style="scroll-margin-top: 160px;">
+                    <a href="information.html" style="display: block; text-decoration: none; color: inherit;">
+                        <div style="position: relative; width: 100%; aspect-ratio: 3 / 2; border-radius: 12px; overflow: hidden; margin-bottom: 10px;">
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80" alt="Snow-dusted peaks above a green valley in the mountains" width="900" height="860" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <span style="position: absolute; top: 12px; left: 12px; padding: 5px 10px; border-radius: 16px; background: #ffffff; font-size: 12px; font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.18);">Guest favourite</span>
+                            <span style="position: absolute; top: 12px; right: 12px; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.45));">
+                                <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28s-9.2-6-12.2-11.2C1.6 13.2 2.8 8 7.4 8c2.4 0 4 1.3 5 2.6C13.4 9.3 15 8 17.4 8c4.6 0 5.8 5.2 3.6 8.8C25.2 22 16 28 16 28z" fill="rgba(0,0,0,0.35)" stroke="#ffffff" stroke-width="2"/></svg>
+                            </span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; gap: 8px; align-items: flex-start;">
+                            <strong style="font-size: 15px; font-weight: 600;">Hunza Valley, Pakistan</strong>
+                            <span style="display: inline-flex; align-items: center; gap: 4px; font-size: 14px; flex-shrink: 0;">
+                                <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill="#222" d="M8 1.2 9.9 5.6l4.8.5-3.6 3.1.1 4.8L8 11.6 4.8 14l.1-4.8L1.3 6.1l4.8-.5L8 1.2z"/></svg>
+                                4.92
+                            </span>
+                        </div>
+                        <span style="display: block; margin-top: 2px; font-size: 15px; color: #6a6a6a;">Forts and mountain roads</span>
+                        <span style="display: block; margin-top: 2px; font-size: 15px; color: #6a6a6a;">Mar 12 – 19</span>
+                        <span style="display: block; margin-top: 6px; font-size: 15px;"><strong style="font-weight: 600;">PKR 145,000</strong> <span style="color: #222222;">total</span></span>
+                    </a>
+                </li>
+                <li id="istanbul" style="scroll-margin-top: 160px;">
+                    <a href="information.html" style="display: block; text-decoration: none; color: inherit;">
+                        <div style="position: relative; width: 100%; aspect-ratio: 3 / 2; border-radius: 12px; overflow: hidden; margin-bottom: 10px;">
+                            <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=900&q=80" alt="Mosque and historic waterfront buildings along the Bosphorus in Istanbul" width="900" height="860" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <span style="position: absolute; top: 12px; right: 12px; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.45));">
+                                <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28s-9.2-6-12.2-11.2C1.6 13.2 2.8 8 7.4 8c2.4 0 4 1.3 5 2.6C13.4 9.3 15 8 17.4 8c4.6 0 5.8 5.2 3.6 8.8C25.2 22 16 28 16 28z" fill="rgba(0,0,0,0.35)" stroke="#ffffff" stroke-width="2"/></svg>
+                            </span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; gap: 8px; align-items: flex-start;">
+                            <strong style="font-size: 15px; font-weight: 600;">Istanbul, Türkiye</strong>
+                            <span style="display: inline-flex; align-items: center; gap: 4px; font-size: 14px; flex-shrink: 0;">
+                                <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill="#222" d="M8 1.2 9.9 5.6l4.8.5-3.6 3.1.1 4.8L8 11.6 4.8 14l.1-4.8L1.3 6.1l4.8-.5L8 1.2z"/></svg>
+                                4.88
+                            </span>
+                        </div>
+                        <span style="display: block; margin-top: 2px; font-size: 15px; color: #6a6a6a;">Old city and the Bosphorus</span>
+                        <span style="display: block; margin-top: 2px; font-size: 15px; color: #6a6a6a;">Apr 2 – 9</span>
+                        <span style="display: block; margin-top: 6px; font-size: 15px;"><strong style="font-weight: 600;">PKR 310,000</strong> <span style="color: #222222;">total</span></span>
+                    </a>
+                </li>
+                <li id="bali" style="scroll-margin-top: 160px;">
+                    <a href="information.html" style="display: block; text-decoration: none; color: inherit;">
+                        <div style="position: relative; width: 100%; aspect-ratio: 3 / 2; border-radius: 12px; overflow: hidden; margin-bottom: 10px;">
+                            <img src="media/coast.jpg" alt="Turquoise water and pale sand along a tropical beach" width="1400" height="900" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <span style="position: absolute; top: 12px; left: 12px; padding: 5px 10px; border-radius: 16px; background: #ffffff; font-size: 12px; font-weight: 600; box-shadow: 0 2px 4px rgba(0,0,0,0.18);">Guest favourite</span>
+                            <span style="position: absolute; top: 12px; right: 12px; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.45));">
+                                <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28s-9.2-6-12.2-11.2C1.6 13.2 2.8 8 7.4 8c2.4 0 4 1.3 5 2.6C13.4 9.3 15 8 17.4 8c4.6 0 5.8 5.2 3.6 8.8C25.2 22 16 28 16 28z" fill="rgba(0,0,0,0.35)" stroke="#ffffff" stroke-width="2"/></svg>
+                            </span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; gap: 8px; align-items: flex-start;">
+                            <strong style="font-size: 15px; font-weight: 600;">Bali, Indonesia</strong>
+                            <span style="display: inline-flex; align-items: center; gap: 4px; font-size: 14px; flex-shrink: 0;">
+                                <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill="#222" d="M8 1.2 9.9 5.6l4.8.5-3.6 3.1.1 4.8L8 11.6 4.8 14l.1-4.8L1.3 6.1l4.8-.5L8 1.2z"/></svg>
+                                4.97
+                            </span>
+                        </div>
+                        <span style="display: block; margin-top: 2px; font-size: 15px; color: #6a6a6a;">Coast and Ubud terraces</span>
+                        <span style="display: block; margin-top: 2px; font-size: 15px; color: #6a6a6a;">May 6 – 13</span>
+                        <span style="display: block; margin-top: 6px; font-size: 15px;"><strong style="font-weight: 600;">PKR 285,000</strong> <span style="color: #222222;">total</span></span>
+                    </a>
+                </li>
+                <li id="rome" style="scroll-margin-top: 160px;">
+                    <a href="information.html" style="display: block; text-decoration: none; color: inherit;">
+                        <div style="position: relative; width: 100%; aspect-ratio: 3 / 2; border-radius: 12px; overflow: hidden; margin-bottom: 10px;">
+                            <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=900&q=80" alt="The Colosseum in Rome under a clear sky" width="900" height="860" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+                            <span style="position: absolute; top: 12px; right: 12px; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.45));">
+                                <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28s-9.2-6-12.2-11.2C1.6 13.2 2.8 8 7.4 8c2.4 0 4 1.3 5 2.6C13.4 9.3 15 8 17.4 8c4.6 0 5.8 5.2 3.6 8.8C25.2 22 16 28 16 28z" fill="rgba(0,0,0,0.35)" stroke="#ffffff" stroke-width="2"/></svg>
+                            </span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; gap: 8px; align-items: flex-start;">
+                            <strong style="font-size: 15px; font-weight: 600;">Rome, Italy</strong>
+                            <span style="display: inline-flex; align-items: center; gap: 4px; font-size: 14px; flex-shrink: 0;">
+                                <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill="#222" d="M8 1.2 9.9 5.6l4.8.5-3.6 3.1.1 4.8L8 11.6 4.8 14l.1-4.8L1.3 6.1l4.8-.5L8 1.2z"/></svg>
+                                4.85
+                            </span>
+                        </div>
+                        <span style="display: block; margin-top: 2px; font-size: 15px; color: #6a6a6a;">Neighborhood walks</span>
+                        <span style="display: block; margin-top: 2px; font-size: 15px; color: #6a6a6a;">Jun 3 – 10</span>
+                        <span style="display: block; margin-top: 6px; font-size: 15px;"><strong style="font-weight: 600;">PKR 340,000</strong> <span style="color: #222222;">total</span></span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer style="background-color: #f7f7f7; border-top: 1px solid #dddddd; padding: 40px 40px 28px; color: #222222;">
+        <div style="max-width: 1760px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 28px; padding-bottom: 28px; border-bottom: 1px solid #dddddd;">
+                <div>
+                    <p style="margin: 0 0 12px; font-size: 14px; font-weight: 600;">Support</p>
+                    <p style="margin: 0 0 8px; font-size: 14px; color: #222222;">hello@horizontrail.example</p>
+                    <p style="margin: 0; font-size: 14px;">+92 300 555 0142</p>
+                </div>
+                <div>
+                    <p style="margin: 0 0 12px; font-size: 14px; font-weight: 600;">Explore</p>
+                    <p style="margin: 0 0 8px;"><a href="information.html" style="color: #222222; font-size: 14px; text-decoration: none;">Tour packages</a></p>
+                    <p style="margin: 0;"><a href="registration.html" style="color: #222222; font-size: 14px; text-decoration: none;">Book a trip</a></p>
+                </div>
+                <div>
+                    <p style="margin: 0 0 12px; font-size: 14px; font-weight: 600;">Horizon Trail</p>
+                    <p style="margin: 0; font-size: 14px; color: #6a6a6a;">Small-group departures for students and families.</p>
+                </div>
+            </div>
+            <p style="margin: 16px 0 0; font-size: 14px; color: #222222;">© 2026 Horizon Trail Travel · Sample site for Web Technologies</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll("details.menu").forEach(function (menu) {
+            menu.addEventListener("toggle", function () {
+                if (!menu.open) return;
+                document.querySelectorAll("details.menu").forEach(function (other) {
+                    if (other !== menu) other.open = false;
+                });
+            });
+            menu.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    menu.open = false;
+                });
+            });
+        });
+        document.addEventListener("click", function (event) {
+            document.querySelectorAll("details.menu").forEach(function (menu) {
+                if (!menu.contains(event.target)) menu.open = false;
+            });
+        });
+    </script>
+
+</body>
+</html>

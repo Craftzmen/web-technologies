@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 2 | Student Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="lab-2.css">
+</head>
+<body>
+
+    <header class="lab-topbar">
+        <div class="lab-topbar-inner">
+            <a href="../index.html" class="logo">
+                <span class="logo-mark">W</span>
+                <span class="logo-text">Web Technologies</span>
+            </a>
+        </div>
+        <div class="lab-topbar-crumbs">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#labs">Labs</a></li>
+                    <li><span aria-current="page">Lab 2</span></li>
+                </ol>
+            </nav>
+        </div>
+    </header>
+
+    <header class="portal-header">
+        <div class="portal-header-inner">
+            <span class="portal-badge">Student Portal</span>
+            <h1>University of Technology</h1>
+            <h2>Department of Computer Science</h2>
+            <p class="portal-header-tagline">Manage your profile, courses, and registration in one place.</p>
+            <div class="portal-stats">
+                <div class="portal-stat">
+                    <span class="portal-stat-label">Program</span>
+                    <span class="portal-stat-value">BS Computer Science</span>
+                </div>
+                <div class="portal-stat">
+                    <span class="portal-stat-label">Semester</span>
+                    <span class="portal-stat-value">5th · Spring 2026</span>
+                </div>
+                <div class="portal-stat">
+                    <span class="portal-stat-label">Enrolled courses</span>
+                    <span class="portal-stat-value">6 active</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg portal-bootstrap-nav sticky-top" aria-label="Portal sections">
+        <div class="container-fluid portal-nav-inner px-3 px-lg-4" style="max-width: 72rem;">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#portalNav" aria-controls="portalNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="portalNav">
+                <ul class="navbar-nav portal-nav-list flex-wrap gap-1 py-2 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#profile">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#announcements">Announcements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#registration">Registration</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="portal-main">
+
+        <section class="portal-section" id="home">
+            <div class="section-head">
+                <p class="section-eyebrow">Overview</p>
+                <h2>Welcome</h2>
+            </div>
+            <div class="section-body portal-alerts">
+                <div class="alert alert-success d-flex align-items-start gap-2" role="alert">
+                    <span aria-hidden="true">✓</span>
+                    <div>Your account is active. Use the navigation above to view your profile, registered courses, announcements, and submit new course registration.</div>
+                </div>
+                <div class="alert alert-warning mb-4" role="alert">
+                    Course registration for the 6th semester opens on <strong>March 15, 2026</strong>.
+                </div>
+                <p>Welcome to the Student Portal. This portal allows students to view their profile, courses, and registration information.</p>
+                <p>Visit our official website: <a href="https://www.university.edu" target="_blank" rel="noopener">www.university.edu</a></p>
+            </div>
+        </section>
+
+                <section class="portal-section portal-dashboard" id="profile">
+            <div class="section-head">
+                <p class="section-eyebrow">Dashboard</p>
+                <h2>Student Profile &amp; Registered Courses</h2>
+            </div>
+            <div class="section-body">
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-5">
+                        <div class="card student-profile-card h-100">
+                            <div class="card-header">Student Information</div>
+                            <div class="card-body text-center">
+                                <img class="profile-avatar mb-3"
+                                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&amp;fit=crop&amp;w=300&amp;h=300&amp;q=80"
+                                     alt="Student profile picture"
+                                     width="128"
+                                     height="128"
+                                     loading="lazy">
+                                <h3 class="h5 profile-name mb-1">Ali Ahmed</h3>
+                                <p class="profile-id mb-0">BSCS-2026-001</p>
+                            </div>
+                            <ul class="list-group list-group-flush text-start">
+                                <li class="list-group-item d-flex justify-content-between gap-3"><span class="text-muted">Program</span><span class="fw-medium">BS Computer Science</span></li>
+                                <li class="list-group-item d-flex justify-content-between gap-3"><span class="text-muted">Semester</span><span class="fw-medium">5th Semester</span></li>
+                                <li class="list-group-item d-flex justify-content-between gap-3"><span class="text-muted">Email</span><span class="fw-medium">ali@example.com</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" id="courses">
+                        <h3 class="h6 text-uppercase text-muted fw-semibold mb-3" style="letter-spacing: 0.06em;">Registered courses</h3>
+                        <div class="row g-3 course-cards-row">
+                            <div class="col-sm-6">
+                                <div class="card course-card h-100">
+                                    <div class="card-body">
+                                        <span class="badge text-bg-light border badge-code mb-2">CS-301</span>
+                                        <h4 class="card-title h6 mb-1">Data Structures</h4>
+                                        <p class="card-text small text-muted mb-0">Credit hours: 3</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card course-card h-100">
+                                    <div class="card-body">
+                                        <span class="badge text-bg-light border badge-code mb-2">CS-302</span>
+                                        <h4 class="card-title h6 mb-1">Database Systems</h4>
+                                        <p class="card-text small text-muted mb-0">Credit hours: 3</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card course-card h-100">
+                                    <div class="card-body">
+                                        <span class="badge text-bg-light border badge-code mb-2">CS-303</span>
+                                        <h4 class="card-title h6 mb-1">Computer Networks</h4>
+                                        <p class="card-text small text-muted mb-0">Credit hours: 3</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card course-card h-100">
+                                    <div class="card-body">
+                                        <span class="badge text-bg-light border badge-code mb-2">CS-304</span>
+                                        <h4 class="card-title h6 mb-1">Human Computer Interaction</h4>
+                                        <p class="card-text small text-muted mb-0">Credit hours: 3</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card course-card h-100">
+                                    <div class="card-body">
+                                        <span class="badge text-bg-light border badge-code mb-2">CS-305</span>
+                                        <h4 class="card-title h6 mb-1">Operating Systems</h4>
+                                        <p class="card-text small text-muted mb-0">Credit hours: 3</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card course-card h-100">
+                                    <div class="card-body">
+                                        <span class="badge text-bg-light border badge-code mb-2">CS-306</span>
+                                        <h4 class="card-title h6 mb-1">Software Engineering</h4>
+                                        <p class="card-text small text-muted mb-0">Credit hours: 3</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="h6 text-uppercase text-muted fw-semibold mt-4 mb-3" style="letter-spacing: 0.06em;">Course table</h3>
+                <div class="table-scroll">
+                    <table>
+                        <caption>Student Course Information</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Course Code</th>
+                                <th scope="col">Course Name</th>
+                                <th scope="col">Credit Hours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="course-code">CS-301</span></td>
+                                <td>Data Structures</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td><span class="course-code">CS-302</span></td>
+                                <td>Database Systems</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td><span class="course-code">CS-303</span></td>
+                                <td>Computer Networks</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td><span class="course-code">CS-304</span></td>
+                                <td>Human Computer Interaction</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td><span class="course-code">CS-305</span></td>
+                                <td>Operating Systems</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td><span class="course-code">CS-306</span></td>
+                                <td>Software Engineering</td>
+                                <td>3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="portal-section" id="announcements">
+            <div class="section-head">
+                <p class="section-eyebrow">Updates</p>
+                <h2>Announcements</h2>
+            </div>
+            <div class="section-body">
+            <ul class="announcement-feed">
+                <li>
+                    <span class="announcement-date">Mar 10, 2026</span>
+                    <p class="announcement-text">Midterm examination schedule has been published. Check the courses section for details.</p>
+                </li>
+                <li>
+                    <span class="announcement-date">Mar 5, 2026</span>
+                    <p class="announcement-text">Course registration for the 6th semester opens on March 15, 2026.</p>
+                </li>
+                <li>
+                    <span class="announcement-date">Feb 28, 2026</span>
+                    <p class="announcement-text">The Department of Computer Science will host a guest lecture on Artificial Intelligence on March 20, 2026.</p>
+                </li>
+            </ul>
+            </div>
+        </section>
+
+        <section class="portal-section" id="registration">
+            <div class="section-head">
+                <p class="section-eyebrow">Enrollment</p>
+                <h2>Course Registration</h2>
+            </div>
+            <div class="section-body">
+            <form class="registration-form" action="#" method="post">
+                <div class="form-group">
+                    <label for="name">Student Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <label for="rollno">Roll Number</label>
+                    <input type="text" id="rollno" name="rollno" placeholder="Enter your roll number">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                </div>
+
+                <div class="form-group form-group--full">
+                    <span class="field-label" id="gender-label">Gender</span>
+                    <div class="choice-list choice-list--row" role="group" aria-labelledby="gender-label">
+                        <label class="choice-item">
+                            <input type="radio" id="male" name="gender" value="male">
+                            Male
+                        </label>
+                        <label class="choice-item">
+                            <input type="radio" id="female" name="gender" value="female">
+                            Female
+                        </label>
+                        <label class="choice-item">
+                            <input type="radio" id="other" name="gender" value="other">
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                </div>
+
+                <div class="form-group">
+                    <label for="department">Select Department</label>
+                    <select id="department" name="department">
+                        <option value="">Select Department</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="se">Software Engineering</option>
+                        <option value="it">Information Technology</option>
+                        <option value="ai">Artificial Intelligence</option>
+                        <option value="cyber">Cyber Security</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="semester">Select Semester</label>
+                    <select id="semester" name="semester">
+                        <option value="">Select Semester</option>
+                        <option value="1">1st Semester</option>
+                        <option value="2">2nd Semester</option>
+                        <option value="3">3rd Semester</option>
+                        <option value="4">4th Semester</option>
+                        <option value="5">5th Semester</option>
+                        <option value="6">6th Semester</option>
+                        <option value="7">7th Semester</option>
+                        <option value="8">8th Semester</option>
+                    </select>
+                </div>
+
+                <div class="form-group form-group--full">
+                    <span class="field-label" id="courses-label">Select Courses</span>
+                    <div class="choice-list choice-list--grid" role="group" aria-labelledby="courses-label">
+                        <label class="choice-item">
+                            <input type="checkbox" id="ds" name="course" value="data-structures">
+                            Data Structures
+                        </label>
+                        <label class="choice-item">
+                            <input type="checkbox" id="db" name="course" value="database">
+                            Database Systems
+                        </label>
+                        <label class="choice-item">
+                            <input type="checkbox" id="cn" name="course" value="networks">
+                            Computer Networks
+                        </label>
+                        <label class="choice-item">
+                            <input type="checkbox" id="hci" name="course" value="hci">
+                            Human Computer Interaction
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group form-group--full">
+                    <label for="address">Address</label>
+                    <textarea id="address" name="address" rows="4" placeholder="Enter your full address"></textarea>
+                </div>
+
+                <div class="form-group form-group--full">
+                    <label for="comments">Additional Comments</label>
+                    <textarea id="comments" name="comments" rows="5" placeholder="Enter your comments"></textarea>
+                </div>
+
+                <div class="form-actions form-group--full">
+                    <button type="submit" class="btn btn-primary">Register Courses</button>
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                </div>
+            </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="portal-footer" id="contact">
+        <div class="portal-footer-inner">
+            <h3>Contact Us</h3>
+            <p class="portal-footer-lead">Reach the student services desk for portal access, registration, or academic records.</p>
+            <dl class="portal-footer-grid">
+                <div>
+                    <dt>Email</dt>
+                    <dd><a href="mailto:studentportal@example.com">studentportal@example.com</a></dd>
+                </div>
+                <div>
+                    <dt>Phone</dt>
+                    <dd>+92-300-1234567</dd>
+                </div>
+                <div>
+                    <dt>Website</dt>
+                    <dd><a href="https://www.university.edu" target="_blank" rel="noopener">www.university.edu</a></dd>
+                </div>
+            </dl>
+            <p class="portal-footer-copy">&copy; 2026 University of Technology. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        (function () {
+            var links = document.querySelectorAll(".portal-nav-list .nav-link[href^='#']");
+            var sections = [];
+            links.forEach(function (link) {
+                var id = link.getAttribute("href").slice(1);
+                var el = document.getElementById(id);
+                if (el) sections.push({ id: id, el: el, link: link });
+            });
+
+            function setActive(id) {
+                links.forEach(function (a) {
+                    a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+                });
+            }
+
+            if ("IntersectionObserver" in window && sections.length) {
+                var observer = new IntersectionObserver(
+                    function (entries) {
+                        entries.forEach(function (entry) {
+                            if (entry.isIntersecting) setActive(entry.target.id);
+                        });
+                    },
+                    { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+                );
+                sections.forEach(function (s) { observer.observe(s.el); });
+            } else if (sections.length) {
+                setActive(sections[0].id);
+            }
+
+            links.forEach(function (link) {
+                link.addEventListener("click", function () {
+                    var id = link.getAttribute("href").slice(1);
+                    setActive(id);
+                });
+            });
+        })();
+    </script>
+
+</body>
+</html>

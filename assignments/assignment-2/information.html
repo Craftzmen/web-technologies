@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon Trail | Tour Packages</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Element selector */
+        p {
+            color: #6a6a6a;
+            line-height: 1.5;
+            margin: 0 0 12px;
+        }
+
+        /* Class selector */
+        .notice {
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+        }
+
+        /* ID selector */
+        #featured-tour {
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ebebeb;
+        }
+
+        /* Attribute selector */
+        article a[href="registration.html"] {
+            display: block;
+            margin-top: 16px;
+            padding: 14px 24px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            color: #ffffff;
+            background: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
+        }
+
+        article a[href="registration.html"] {
+            transition: filter 0.2s ease, transform 0.2s ease;
+        }
+
+        article a[href="registration.html"]:hover {
+            filter: brightness(1.06);
+            transform: translateY(-1px);
+        }
+
+        article a[href="registration.html"]:active {
+            transform: translateY(0);
+        }
+
+        body {
+            margin: 0;
+            font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 16px;
+            line-height: 1.43;
+            background-color: #ffffff;
+            color: #222222;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: #ffffff;
+            border-bottom: 1px solid #ebebeb;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 16px 40px;
+        }
+
+        .topbar h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.06em;
+            line-height: 1;
+        }
+
+        .topbar h1 a {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            color: #ff385c;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            display: block;
+            flex: 0 0 auto;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        nav a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            border-radius: 22px;
+            color: #222222;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        nav a:hover {
+            background-color: #f7f7f7;
+        }
+
+        nav a.is-current {
+            background-color: #f7f7f7;
+        }
+
+        .nav-menu {
+            position: relative;
+            margin-left: 4px;
+        }
+
+        .nav-menu summary {
+            list-style: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 5px 5px 14px;
+            border: 1px solid #dddddd;
+            border-radius: 24px;
+            color: #222222;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+
+        .nav-menu summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .nav-menu summary:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+            background-color: #f7f7f7;
+        }
+
+        .nav-menu[open] .panel {
+            animation: menu-in 0.2s ease;
+        }
+
+        .nav-menu .panel {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            z-index: 50;
+            width: 230px;
+            padding: 8px;
+            background: #ffffff;
+            border: 1px solid #ebebeb;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+        }
+
+        .nav-menu .panel a {
+            display: block;
+            padding: 12px 14px;
+            border-radius: 10px;
+            transition: background-color 0.18s ease;
+        }
+
+        .nav-menu .panel a:hover {
+            background: #f7f7f7;
+        }
+
+        .avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #717171;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .shell {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 24px 40px 72px;
+            box-sizing: border-box;
+        }
+
+        .listing-title {
+            margin: 0 0 8px;
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .facts {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px 8px;
+            margin: 0 0 20px;
+            font-size: 14px;
+            color: #222222;
+        }
+
+        .facts a {
+            color: #222222;
+            font-weight: 600;
+            text-underline-offset: 3px;
+        }
+
+        .dot {
+            color: #222222;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.7fr 0.7fr;
+            grid-template-rows: 180px 180px;
+            gap: 8px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.45s ease, filter 0.45s ease;
+        }
+
+        .photo-grid img:hover {
+            transform: scale(1.04);
+            filter: brightness(1.04);
+        }
+
+        .photo-grid .main-photo {
+            grid-row: 1 / span 2;
+            grid-column: 1;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 64px;
+            align-items: start;
+        }
+
+        #featured-tour h3 {
+            margin: 0 0 4px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .host-line {
+            margin: 0 0 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ebebeb;
+            color: #222222;
+            font-size: 16px;
+        }
+
+        .highlights {
+            display: grid;
+            gap: 20px;
+            margin: 8px 0 8px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .highlights li {
+            display: grid;
+            grid-template-columns: 28px 1fr;
+            gap: 16px;
+            align-items: start;
+        }
+
+        .highlights strong {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            color: #222222;
+        }
+
+        .highlights span {
+            display: block;
+            margin-top: 2px;
+            font-size: 14px;
+            color: #6a6a6a;
+        }
+
+        .notice h3 {
+            margin: 0 0 16px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #222222;
+        }
+
+        .rate {
+            margin: 0 0 16px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #222222;
+            letter-spacing: -0.02em;
+        }
+
+        .rate span {
+            font-size: 16px;
+            font-weight: 400;
+            color: #222222;
+        }
+
+        .date-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border: 1px solid #b0b0b0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .date-box div {
+            padding: 10px 12px;
+        }
+
+        .date-box div + div {
+            border-left: 1px solid #b0b0b0;
+        }
+
+        .date-box small {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #222222;
+        }
+
+        .date-box p {
+            margin: 2px 0 0;
+            font-size: 14px;
+            color: #222222;
+        }
+
+        .fine {
+            margin: 12px 0 0;
+            text-align: center;
+            font-size: 12px;
+            color: #222222;
+        }
+
+        .table-wrap {
+            margin-top: 56px;
+            padding-top: 32px;
+            border-top: 1px solid #ebebeb;
+        }
+
+        .table-wrap h3 {
+            margin: 0 0 16px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        caption {
+            caption-side: top;
+            text-align: left;
+            font-size: 14px;
+            color: #6a6a6a;
+            padding: 0 0 12px;
+        }
+
+        th[scope="col"] {
+            background-color: #f7f7f7;
+            color: #222222;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            padding: 14px 16px;
+            text-align: left;
+        }
+
+        tbody tr td {
+            transition: background-color 0.2s ease;
+        }
+
+        tbody tr:hover td {
+            background-color: #f7f7f7;
+        }
+
+        .price {
+            font-variant-numeric: tabular-nums;
+            font-weight: 600;
+            color: #222222;
+        }
+
+        .media-block {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid #ebebeb;
+        }
+
+        .media-block h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 8px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #222222;
+        }
+
+        audio,
+        video {
+            display: block;
+            width: 100%;
+            max-width: 720px;
+            margin-top: 16px;
+        }
+
+        video {
+            border-radius: 12px;
+            background: #222222;
+        }
+
+        footer {
+            background: #f7f7f7;
+            border-top: 1px solid #dddddd;
+            padding: 32px 40px 28px;
+            font-size: 14px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        footer p {
+            margin: 0;
+            color: #222222;
+        }
+
+        footer a {
+            transition: color 0.2s ease;
+        }
+
+        @keyframes menu-in {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 900px) {
+            .header-inner,
+            .shell,
+            footer {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 220px 120px;
+            }
+
+            .photo-grid .main-photo {
+                grid-column: 1 / span 2;
+                grid-row: 1;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .notice {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Site header -->
+    <header class="topbar">
+        <div class="header-inner">
+            <h1><a href="index.html"><svg class="logo-mark" width="26" height="32" viewBox="5 1 22 30" aria-hidden="true"><path fill="#ff385c" d="M16 1.6C10.1 1.6 5.4 6.2 5.4 12c0 7.2 10.6 18.4 10.6 18.4S26.6 19.2 26.6 12C26.6 6.2 21.9 1.6 16 1.6zm0 14.1a3.8 3.8 0 1 1 0-7.6 3.8 3.8 0 0 1 0 7.6z"/></svg><span>Horizon Trail</span></a></h1>
+            <nav aria-label="Main">
+                <a href="index.html">
+                    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#222" stroke-width="1.8" stroke-linejoin="round" d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z"/></svg>
+                    Home
+                </a>
+                <a class="is-current" href="information.html">
+                    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" d="M8 6h12M8 12h12M8 18h12"/><path stroke="#222" stroke-width="3" stroke-linecap="round" d="M4 6h.01M4 12h.01M4 18h.01"/></svg>
+                    Tour packages
+                </a>
+                <details class="nav-menu menu">
+                    <summary>
+                        Menu
+                        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+                        <span class="avatar">
+                            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.2" fill="#fff"/><path fill="#fff" d="M6 19.2c.8-2.6 3-4 6-4s5.2 1.4 6 4"/></svg>
+                        </span>
+                    </summary>
+                    <div class="panel">
+                        <a href="index.html">Home</a>
+                        <a href="information.html">Tour packages</a>
+                        <a href="registration.html">Book a trip</a>
+                    </div>
+                </details>
+            </nav>
+        </div>
+    </header>
+
+    <div class="shell">
+        <main>
+            <h2 class="listing-title">Bali coast and Ubud</h2>
+            <p class="facts">
+                <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill="#222" d="M8 1.2 9.9 5.6l4.8.5-3.6 3.1.1 4.8L8 11.6 4.8 14l.1-4.8L1.3 6.1l4.8-.5L8 1.2z"/></svg>
+                <strong>4.97</strong>
+                <span class="dot">·</span>
+                <span>Guest favourite</span>
+                <span class="dot">·</span>
+                <a href="#packages">Spring 2026 packages</a>
+            </p>
+
+            <div class="photo-grid">
+                <img class="main-photo" src="media/coast.jpg" alt="Turquoise water and pale sand along a tropical beach" width="1200" height="800">
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" alt="Green rice terraces in Ubud, Bali" width="800" height="600">
+                <img src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=800&q=80" alt="A stone temple gate surrounded by tropical plants in Bali" width="800" height="600">
+                <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80" alt="Palm trees and calm water at a Bali beach" width="800" height="600">
+                <img src="https://images.unsplash.com/photo-1573790387438-4da905039392?auto=format&fit=crop&w=800&q=80" alt="A cliffside temple above the ocean in Bali" width="800" height="600">
+            </div>
+
+            <div class="layout">
+                <!-- Self-contained description of one tour -->
+                <article id="featured-tour">
+                    <h3>7 days with a local guide</h3>
+                    <p class="host-line">South coast first, then Ubud · Up to 12 guests</p>
+                    <p>
+                        Mornings are for the beach and a temple visit. Afternoons are for the rice terraces,
+                        a cooking class, and one free evening in Seminyak. The price covers the guide,
+                        six hotel nights, breakfast, and airport pickup. Flights stay with you so a student fare still works.
+                    </p>
+                    <ul class="highlights">
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3" fill="none" stroke="#222" stroke-width="1.6"/><path d="M5 19c.8-3 3.2-4.5 7-4.5S18.2 16 19 19" fill="none" stroke="#222" stroke-width="1.6" stroke-linecap="round"/></svg>
+                            <div>
+                                <strong>Shared guide</strong>
+                                <span>One guide for the group, every day except the free evening.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.5 12 5l8 6.5V20H4v-8.5z" fill="none" stroke="#222" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 20v-6h6v6" fill="none" stroke="#222" stroke-width="1.6"/></svg>
+                            <div>
+                                <strong>Six hotel nights</strong>
+                                <span>Twin or double rooms. Tell us which you need on the booking form.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 17h14M7 17V9a5 5 0 0 1 10 0v8" fill="none" stroke="#222" stroke-width="1.6" stroke-linecap="round"/><path d="M8 7h.01M12 7h.01" stroke="#222" stroke-width="2" stroke-linecap="round"/></svg>
+                            <div>
+                                <strong>Breakfast included</strong>
+                                <span>At the hotel. Other meals are on your own, except the cooking class.</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <p>Choose Bali on the booking form. Groups stay at twelve travelers.</p>
+                    <a href="registration.html">Reserve</a>
+                </article>
+
+                <!-- Related announcement, used as the reserve card -->
+                <aside class="notice">
+                    <p class="rate">PKR 285,000 <span>per person</span></p>
+                    <div class="date-box">
+                        <div>
+                            <small>Check-in</small>
+                            <p>5/6/2026</p>
+                        </div>
+                        <div>
+                            <small>Checkout</small>
+                            <p>5/13/2026</p>
+                        </div>
+                    </div>
+                    <h3>Booking tip</h3>
+                    <p>
+                        Spring dates usually fill three weeks out. Send the form early if you need a twin room or a late arrival.
+                    </p>
+                    <p class="fine">You won’t be charged yet. This form stays in the browser.</p>
+                </aside>
+            </div>
+
+            <div class="table-wrap" id="packages">
+                <h3>All packages</h3>
+                <table>
+                    <caption>Seven-day small-group packages, spring 2026</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Focus</th>
+                            <th scope="col">Price per person (PKR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hunza Valley</td>
+                            <td>Forts and mountain roads</td>
+                            <td class="price">145,000</td>
+                        </tr>
+                        <tr>
+                            <td>Istanbul</td>
+                            <td>Old city and Bosphorus</td>
+                            <td class="price">310,000</td>
+                        </tr>
+                        <tr>
+                            <td>Bali</td>
+                            <td>Coast and Ubud</td>
+                            <td class="price">285,000</td>
+                        </tr>
+                        <tr>
+                            <td>Rome</td>
+                            <td>Neighborhood walks</td>
+                            <td class="price">340,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Audio and video previews -->
+            <section class="media-block">
+                <h3>
+                    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="#222"/></svg>
+                    Destination preview
+                </h3>
+                <p>Shore waves, then the same beach in motion.</p>
+                <audio controls src="media/waves.mp3">
+                    Your browser cannot play this audio preview. The file is media/waves.mp3.
+                </audio>
+                <video controls poster="media/shore.jpg" width="1280" height="720">
+                    <source src="media/shore.mp4" type="video/mp4">
+                    Your browser cannot play this beach clip. The file is media/shore.mp4.
+                </video>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <p>hello@horizontrail.example · +92 300 555 0142</p>
+            <p>© 2026 Horizon Trail Travel</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll("details.menu").forEach(function (menu) {
+            menu.addEventListener("toggle", function () {
+                if (!menu.open) return;
+                document.querySelectorAll("details.menu").forEach(function (other) {
+                    if (other !== menu) other.open = false;
+                });
+            });
+        });
+        document.addEventListener("click", function (event) {
+            document.querySelectorAll("details.menu").forEach(function (menu) {
+                if (!menu.contains(event.target)) menu.open = false;
+            });
+        });
+    </script>
+
+</body>
+</html>

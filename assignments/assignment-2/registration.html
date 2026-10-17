@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon Trail | Book a Trip</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Site header -->
+    <header class="topbar">
+        <div class="header-inner">
+            <h1><a href="index.html"><svg class="logo-mark" width="26" height="32" viewBox="5 1 22 30" aria-hidden="true"><path fill="#ff385c" d="M16 1.6C10.1 1.6 5.4 6.2 5.4 12c0 7.2 10.6 18.4 10.6 18.4S26.6 19.2 26.6 12C26.6 6.2 21.9 1.6 16 1.6zm0 14.1a3.8 3.8 0 1 1 0-7.6 3.8 3.8 0 0 1 0 7.6z"/></svg><span>Horizon Trail</span></a></h1>
+            <nav class="main-nav" aria-label="Main">
+                <a href="index.html">
+                    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#222" stroke-width="1.8" stroke-linejoin="round" d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5z"/></svg>
+                    Home
+                </a>
+                <a href="information.html">
+                    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" d="M8 6h12M8 12h12M8 18h12"/><path stroke="#222" stroke-width="3" stroke-linecap="round" d="M4 6h.01M4 12h.01M4 18h.01"/></svg>
+                    Tour packages
+                </a>
+                <details class="nav-menu menu">
+                    <summary>
+                        Menu
+                        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+                        <span class="avatar">
+                            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.2" fill="#fff"/><path fill="#fff" d="M6 19.2c.8-2.6 3-4 6-4s5.2 1.4 6 4"/></svg>
+                        </span>
+                    </summary>
+                    <div class="panel">
+                        <a href="index.html">Home</a>
+                        <a href="information.html">Tour packages</a>
+                        <a href="registration.html">Book a trip</a>
+                    </div>
+                </details>
+            </nav>
+        </div>
+    </header>
+
+    <div class="checkout">
+        <div>
+            <a class="back" href="information.html">
+                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="#222" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Packages
+            </a>
+            <h2>Request to book</h2>
+            <p class="lead">Create an account, then tell us which departure you want.</p>
+
+            <main>
+                <p class="notice">This request stays in your browser. Nothing is sent to a server.</p>
+
+                <!-- Booking and account form -->
+                <form id="registration-form" action="#" method="post">
+
+                    <fieldset>
+                        <legend>
+                            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3" fill="none" stroke="#222" stroke-width="1.7"/><path d="M5 19c.8-3 3.2-4.5 7-4.5s6.2 1.5 7 4.5" fill="none" stroke="#222" stroke-width="1.7" stroke-linecap="round"/></svg>
+                            Account
+                        </legend>
+
+                        <div class="field">
+                            <label for="full-name">Full name</label>
+                            <input type="text" id="full-name" name="full-name" autocomplete="name" placeholder="Ayesha Khan" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" autocomplete="email" placeholder="ayesha@example.com" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" autocomplete="new-password" placeholder="At least 8 characters" required minlength="8" aria-describedby="password-hint">
+                            <p class="hint" id="password-hint">Use 8 or more characters. Sample account only.</p>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>
+                            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2" fill="none" stroke="#222" stroke-width="1.7"/><path d="M3.5 9.5h17M8 3.5V7M16 3.5V7" fill="none" stroke="#222" stroke-width="1.7" stroke-linecap="round"/></svg>
+                            Trip
+                        </legend>
+
+                        <div class="split">
+                            <div class="field">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" min="18" max="80" placeholder="18–80" aria-describedby="age-hint">
+                                <p class="hint" id="age-hint">Travelers must be 18–80.</p>
+                            </div>
+
+                            <div class="field">
+                                <label for="preferred-date">Preferred date</label>
+                                <input type="date" id="preferred-date" name="preferred-date">
+                            </div>
+                        </div>
+
+                        <fieldset>
+                            <legend>Trip style</legend>
+                            <div class="choices">
+                                <label class="choice" for="style-guided">
+                                    <input type="radio" id="style-guided" name="trip-style" value="guided">
+                                    Guided small group
+                                </label>
+                                <label class="choice" for="style-independent">
+                                    <input type="radio" id="style-independent" name="trip-style" value="independent">
+                                    Independent travel
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <div class="field">
+                            <label for="destination">Destination</label>
+                            <select id="destination" name="destination" required>
+                                <option value="">Choose a destination</option>
+                                <option value="hunza">Hunza Valley</option>
+                                <option value="istanbul">Istanbul</option>
+                                <option value="bali">Bali</option>
+                                <option value="rome">Rome</option>
+                            </select>
+                        </div>
+
+                        <fieldset>
+                            <legend>Add-ons</legend>
+                            <div class="choices">
+                                <label class="choice" for="addon-transfer">
+                                    <input type="checkbox" id="addon-transfer" name="airport-transfer" value="yes">
+                                    Airport transfer
+                                </label>
+                                <label class="choice" for="addon-insurance">
+                                    <input type="checkbox" id="addon-insurance" name="travel-insurance" value="yes">
+                                    Travel insurance
+                                </label>
+                                <label class="choice" for="addon-walk">
+                                    <input type="checkbox" id="addon-walk" name="guided-walk" value="yes">
+                                    Guided city walk
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <div class="field">
+                            <label for="comments">Additional information</label>
+                            <textarea id="comments" name="comments" rows="5" maxlength="300" placeholder="Room type, arrival time, or anything else we should know."></textarea>
+                        </div>
+                    </fieldset>
+
+                    <div class="actions">
+                        <button type="submit">Request to book</button>
+                        <button type="reset">Clear all</button>
+                    </div>
+                </form>
+            </main>
+        </div>
+
+        <aside class="summary" aria-label="Price details">
+            <img src="media/coast.jpg" alt="Turquoise water and pale sand along a tropical beach" width="240" height="212">
+            <h3>Bali coast and Ubud</h3>
+            <p class="meta">7 nights · Small group</p>
+            <p class="rating">
+                <svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><path fill="#222" d="M8 1.2 9.9 5.6l4.8.5-3.6 3.1.1 4.8L8 11.6 4.8 14l.1-4.8L1.3 6.1l4.8-.5L8 1.2z"/></svg>
+                4.97 · Guest favourite
+            </p>
+            <div class="rows">
+                <p class="row"><span>Package</span><span>PKR 285,000</span></p>
+                <p class="row"><span>Guide, hotel, breakfast</span><span>Included</span></p>
+                <p class="row"><span>Flights</span><span>Not included</span></p>
+                <p class="total"><span>Total per person</span><span>PKR 285,000</span></p>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>hello@horizontrail.example · +92 300 555 0142</p>
+            <p>© 2026 Horizon Trail Travel</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll("details.menu").forEach(function (menu) {
+            menu.addEventListener("toggle", function () {
+                if (!menu.open) return;
+                document.querySelectorAll("details.menu").forEach(function (other) {
+                    if (other !== menu) other.open = false;
+                });
+            });
+        });
+        document.addEventListener("click", function (event) {
+            document.querySelectorAll("details.menu").forEach(function (menu) {
+                if (!menu.contains(event.target)) menu.open = false;
+            });
+        });
+    </script>
+
+</body>
+</html>
